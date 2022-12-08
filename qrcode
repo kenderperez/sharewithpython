@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import io, sys
+import qrcode
+
+cedula = sys.argv[1]
+qr = qrcode.QRCode()
+qr.add_data(f"https://carnet.patria.org.ve/info/ff229fa8b26bbc5e322f413cca9eff8d/1000454900/V{cedula}")
+f = io.StringIO()
+qr.print_ascii(out=f)
+f.seek(0)
+print(f.read())
+print('Escanee el codigo QR con su telefono movil!')
